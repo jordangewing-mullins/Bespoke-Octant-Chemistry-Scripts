@@ -187,8 +187,6 @@ elif amide_coupling:
        df['homocoupling'] = [amide_coupling_homocoupling(x) for x in df['frag_form']] 
        df['activated_ester'] = [activated_ester(x, activator_mol_form) for x in df['frag_form'] ]
 
-    # add activated ester byproduct
-
     # replace existing columns to accomodate new compounds we will be looking at
     df['SubstanceAdduct']=['[M+H]_[M+H]_[M+H]_[M+H]_[M+H]' for x in df['source_well']]
     df['SubstanceName']=['Desired_Core_Fragment_Oxazalone_homocoupling' for x in df['source_well']]
@@ -199,10 +197,6 @@ elif amide_coupling:
     df['SignalAssignmentMode'] = ['MSOnlyAndOther_MSOnlyAndOther_MSOnlyAndOther_MSOnlyAndOther_MSOnlyAndOther' for x in df['source_well']]
     df['Formula'] = df['Formula'] + '_'+df['oxazalone'] + '_' + df['homocoupling']
     df.drop(['oxazalone', 'homocoupling'], axis=1)
-
-if reductive_amination:
-    # come back to this later
-    pass
 
 # save the new substance list with a modified name
 substance_list_outfile_name = substance_list_infile_name.split('.')[0]+'_NEW.csv'
