@@ -10,18 +10,7 @@ all_factors_df = pandas.read_csv(infile_name, index_col=False)
 
 print(df.head())
 
-
-# haven't actually played around with the 7 lines of code directly below
 library_type = input('What kind of library is this? (full, pilot, custom)\n')
-def set_variables(library_type):
-    global parallel_dispensing
-    if library_type=='full':
-        parallel_dispensing = True 
-    else:
-        parallel_dispensing = False
-
-
-
 
 # function to get unique values
 def unique(list1):
